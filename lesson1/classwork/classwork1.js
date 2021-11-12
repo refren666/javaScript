@@ -6,9 +6,17 @@
 for (let i = 0; i < 10; i++) {
     arr[i] = Math.floor(Math.random() * 101)
 }
-console.log(arr)
+console.log(arr)*/
 
-const result = arr.reduce((acc, num) => acc + num, 0)
+// Method 1:
+/*let result = 0;
+for (let i = 0; i < arr.length; i++) {
+    result += arr[i]
+}
+console.log(result)*/
+
+// Method 2:
+/*const result = arr.reduce((acc, num) => acc + num, 0)
 console.log(result)*/
 
 // ---------------------------------------------------
