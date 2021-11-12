@@ -5,10 +5,12 @@
 
 // Method 1:
 /*const firstNum = 10;
-const secondNum = 42;
+const secondNum = 40;
 
 if (firstNum > secondNum) {
     console.log(firstNum)
+} else if (secondNum === firstNum) {
+    console.log('numbers are equal')
 } else {
     console.log(secondNum)
 }*/
