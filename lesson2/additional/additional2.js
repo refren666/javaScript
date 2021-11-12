@@ -48,10 +48,11 @@ console.log(result);*/
 // напишіть це тернарним оператором
 
 // Method 1:
-/*let number = 0;
-let whatNumber = number < 0 ? 'negative' : number > 0 ? 'positive' : 'null'
-console.log(whatNumber)*/
+let number = -100;
 
-// Method 2:
-/*let whatNumber = num =>  num < 0 ? 'negative' : num > 0 ? 'positive' : 'null'
-console.log(whatNumber(-1));*/
+let whatNumber = number > 0 && number < 101 ? 'positive'
+    : number > -101 && number < 0 ? 'negative'
+        : number === 0 ? 'null'
+            : 'invalid value'
+
+console.log(whatNumber)
