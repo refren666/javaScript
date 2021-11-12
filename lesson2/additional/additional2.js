@@ -48,11 +48,23 @@ console.log(result);*/
 // напишіть це тернарним оператором
 
 // Method 1:
-let number = -100;
+/*let number = -100;
 
 let whatNumber = number > 0 && number < 101 ? 'positive'
     : number > -101 && number < 0 ? 'negative'
         : number === 0 ? 'null'
             : 'invalid value'
 
-console.log(whatNumber)
+console.log(whatNumber)*/
+
+// Method 2:
+let number = 0;
+if (number > 0 && number < 101) {
+    console.log('positive')
+} else if (number > -101 && number < 0) {
+    console.log('negative')
+} else if (number === 0) {
+    console.log('null')
+} else {
+    console.log('invalid value, try number between -100 and 100')
+}
