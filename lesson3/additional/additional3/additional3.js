@@ -194,12 +194,16 @@ let usersWithCities = []
 
 for (let user of usersWithId) {
     for (let key in usersWithId) {
-        console.log(usersWithId[key]['id'] === 1)
     }
 
 }
 
-console.log(usersWithCities)
+for (let city of citiesWithId) {
+    for (let key in citiesWithId) {
+
+    }
+}
+
 
 // ********************************************************************************************
 

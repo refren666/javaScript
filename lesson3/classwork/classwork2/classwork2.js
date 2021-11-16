@@ -65,8 +65,7 @@ document.write('</ul>')*/
         </div>
 			*/
 
-
-let simpsons = [
+/*let simpsons = [
     {
         name: 'Bart',
         surname: 'Simpson',
@@ -102,18 +101,18 @@ let simpsons = [
         info: 'Ма́ргарет Эвелин «Мэ́гги» Си́мпсон (англ. Margaret Evelyn “Maggie” Simpson) — персонаж мультсериала «Симпсоны». Впервые появилась на телевидении в шоу Трейси Ульман, в короткометражке Good Night (англ.)русск. 19 апреля 1987 года. Мэгги была придумана и разработана карикатуристом Мэттом Грейнингом, пока он ждал встречи с Джеймсом Л. Бруксом. Названа в честь младшей сестры Грейнинга. После появления в шоу Трейси Ульман, через три года семья Симпсонов получила собственный сериал на телеканале Fox, дебют произошёл 17 декабря 1989 года.',
         photo: 'https://upload.wikimedia.org/wikipedia/ru/9/9d/Maggie_Simpson.png'
     },
-];
+];*/
 
 // 1) template 2.1:
 /*for (let i = 0; i < simpsons.length; i++) {
     document.write(`
-        <div>
+        <div class="simpsons-container">
             ${simpsons[i]['name']} - 
             ${simpsons[i]['surname']} - 
             ${simpsons[i]['age']} - 
             ${simpsons[i]['info']} - 
-            <img src="${simpsons[i]['photo']} 
-                 alt="${simpsons[i]['name']} ${simpsons[i]['surname']}">
+            <img src="${simpsons[i]['photo']}" 
+                 alt="${simpsons[i]['name']} ${simpsons[i]['surname']} ">
         </div>`)
 }*/
 
@@ -123,7 +122,7 @@ for (let i = 0; i < simpsons.length; i++) {
         document.write('<div>');
             document.write(`<h2>${simpsons[i]['name']} ${simpsons[i]['surname']}. age is - ${simpsons[i]['age']}</h2>`);
             document.write(`<p>${simpsons[i]['info']}</p>`);
-            document.write(`<img src="${simpsons[i]['photo']} 
+            document.write(`<img src="${simpsons[i]['photo']}"
                                  alt="${simpsons[i]['name']} ${simpsons[i]['surname']}">`)
         document.write('</div>');
 }
@@ -172,9 +171,9 @@ document.write('</div>');*/
         price: 15,
         image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
     },
-];
+];*/
 
-document.write('<div class="products-container">')
+/*document.write('<div class="products-container">')
 for (let i = 0; i < products.length; i++) {
     document.write('<div class="product-card">')
         document.write(`<h3 class="product-title">${products[i]['title']}. Price - ${products[i]['price']} </h3>`)
