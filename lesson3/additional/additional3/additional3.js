@@ -190,20 +190,20 @@ let citiesWithId = [
     {user_id: 4, country: 'USA', city: 'Miami'}
 ];
 
-let usersWithCities = []
+let usersWithCities = [];
 
-for (let user of usersWithId) {
-    for (let key in usersWithId) {
+for (let i = 0; i < usersWithId.length; i++) {
+    let user = usersWithId[i];
+    let userId = user['id'];
+    for (let j = 0; j < citiesWithId.length; j++) {
+        let city = citiesWithId[j];
+        let cityId = citiesWithId[j]['user_id'];
+        if (userId === cityId) {
+            usersWithCities[i] = Object.assign(user, city);
+        }
     }
-
 }
-
-for (let city of citiesWithId) {
-    for (let key in citiesWithId) {
-
-    }
-}
-
+console.log(usersWithId)
 
 // ********************************************************************************************
 
