@@ -191,19 +191,20 @@ let citiesWithId = [
 ];
 
 let usersWithCities = [];
-
+debugger
 for (let i = 0; i < usersWithId.length; i++) {
     let user = usersWithId[i];
     let userId = user['id'];
     for (let j = 0; j < citiesWithId.length; j++) {
         let city = citiesWithId[j];
-        let cityId = citiesWithId[j]['user_id'];
+        let cityId = city['user_id'];
         if (userId === cityId) {
-            usersWithCities[i] = Object.assign(user, city);
+            user['address'] = city;
         }
     }
 }
-console.log(usersWithId)
+usersWithCities.push(usersWithId);
+console.log(usersWithCities);
 
 // ********************************************************************************************
 
