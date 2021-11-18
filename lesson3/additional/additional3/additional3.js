@@ -176,7 +176,7 @@ console.log(newArray)*/
 //     // TO BE CONTINUED .....
 // ]
 
-let usersWithId = [
+/*let usersWithId = [
     {id: 1, name: 'vasya', age: 31, status: false},
     {id: 2, name: 'petya', age: 30, status: true},
     {id: 3, name: 'kolya', age: 29, status: true},
@@ -191,7 +191,7 @@ let citiesWithId = [
 ];
 
 let usersWithCities = [];
-debugger
+
 for (let i = 0; i < usersWithId.length; i++) {
     let user = usersWithId[i];
     let userId = user['id'];
@@ -204,7 +204,7 @@ for (let i = 0; i < usersWithId.length; i++) {
     }
 }
 usersWithCities.push(usersWithId);
-console.log(usersWithCities);
+console.log(usersWithCities);*/
 
 // ********************************************************************************************
 

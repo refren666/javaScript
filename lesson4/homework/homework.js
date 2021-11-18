@@ -1,23 +1,25 @@
-// - створити функцію яка обчислює та повертає площу прямокутника висотою
-/*function squareArea(height, width) {
-    return height * width
+// - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+/*function squareArea(a, b) {
+    return a * b;
 }
 
 console.log(squareArea(5, 10));*/
 
-// - створити функцію яка обчислює та повертає площу кола
-/*function circleArea(PI, radius) {
+// - створити функцію яка обчислює та повертає площу кола з радіусом r
+/*const PI = 3.14;
+function circleArea(radius) {
     return PI * Math.pow(radius, 2)
 }
 
-console.log(circleArea(3.14, 6))*/
+console.log(circleArea(6))*/
 
-// - створити функцію яка обчислює та повертає площу циліндру
-/*function cylinderArea(PI, radius, height) {
-    return 2 * PI * radius * (height + radius)
+// - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+/*const PI = 3.14;
+function cylinderArea(radius, height) {
+    return 2 * PI * radius * (height + radius);
 }
 
-console.log(cylinderArea(3.14, 6, 12))*/
+console.log(cylinderArea( 6, 12));*/
 
 // - створити функцію яка приймає масив та виводить кожен його елемент
 /*const array = [1, 4, 2, 41, 24, 11];
