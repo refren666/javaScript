@@ -1,9 +1,10 @@
 // - створити функцію, яка якщо приймає один аргумент, просто вивдоить його, якщо два аргументи - складає або конкатенує їх між собою.
+// Fist way:
 /*function xxx() {
     let sum = 0;
     for (let i = 0; i < arguments.length; i++) {
         if (arguments.length === 1) {
-            console.log(arguments[i]);
+            return arguments[i];
         } else if (arguments.length === 2) {
             sum += arguments[i];
         }
@@ -11,8 +12,21 @@
     return sum;
 }
 
-xxx(100);
+console.log(xxx(100));
 console.log(xxx(72, 92));*/
+
+// Second way:
+/*function xxxx(a, b) {
+    if (b) {
+        return a + b;
+    } else if (a) {
+        return a;
+    } else {
+        return 0;
+    }
+}
+
+console.log(xxxx(0));*/
 
 // - створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //   EXAMPLE:
