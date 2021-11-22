@@ -88,16 +88,20 @@ const insertDash = str => {
 document.writeln(insertDash(str));*/
 
 // - Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
-
-
-// - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
-/*
-const capitalize = str => {
-    let stringArray = str.split(' ');
-    for (let i = 0; i < stringArray.length; i++) {
-        let upperCased = stringArray[i][0].toUpperCase();
-        console.log(stringArray[i]);
-    }
+/*const firstLetterToUpperCase = text => {
+    text = text.replace(text[0], text[0].toUpperCase());
+    return text;
 }
 
-capitalize('hello, i like java script');*/
+console.log(firstLetterToUpperCase('i would like to know JS'));*/
+
+// - Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
+/*const capitalize = str => {
+    const stringArray = str.split(' ');
+    const lettersCapitalizer = stringArray.map( word => {
+        word = word.replace(word[0], word[0].toUpperCase());
+        return word;
+    });
+    return lettersCapitalizer.join(' ');
+}
+console.log(capitalize('i would like to know java script'));*/
