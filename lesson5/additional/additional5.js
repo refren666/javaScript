@@ -53,14 +53,13 @@ let array2 = [0,1,2,3,4];
 let array3 = [0,0,1,0];
 
 const kamasutra = arr => {
-    // Пробігаюся по масиву і шукаю скільки раз зустрічається цифра 0
     let amountOfZero = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === 0) {
             amountOfZero++;
         }
     }
-    // Виходячи з того скільки є елементів '0', знаходжу індекс цих елементів і виношу на кінець масиву
+
     for (let i = 0; i < amountOfZero; i++) {
         arr.push(arr.splice(arr.indexOf(0), 1)[0]);
     }
