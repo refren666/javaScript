@@ -52,7 +52,7 @@ console.log(sortedArray);*/
 console.log(filteredArray);*/
 
 // - створити масив рандомних цілих числових значень (або згенерувати, за допомоги попередньої функції) . за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.
-/*let arrayToString = foo(array).map(String); // CALLBACK!!!!!!!
+/*let arrayToString = foo(array).map(String);
 console.log(arrayToString);*/
 
 // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
@@ -103,8 +103,20 @@ console.log(letMeFilterThisArray(coursesAndDurationArray));*/
 // - Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
 // document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
 
-// const cutString = (str, n) => {
-//
-// }
-//
-// document.writeln(cutString('наслаждение', 3))
+/*const cutString = (str, n) => {
+    const parts = [];
+    while (true) {
+        if (str.length < n) {
+            parts.push(str);
+            break;
+        } else {
+            parts.push(str.substr(0, n));
+            str = str.substr(n);
+        }
+    }
+    return parts;
+}
+
+console.log(cutString('наслаждение', 3));*/
+
+
