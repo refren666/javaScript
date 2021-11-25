@@ -8,25 +8,38 @@
 // let n3 = 'Hermione Granger'
 
 
-/*let n1 = 'Harry..Potter'
-let n2 = 'Ron---Whisley'
-let n3 = 'Hermione__Granger'
+// let n1 = 'Harry..Potter'
+// let n2 = 'Ron---Whisley'
+// let n3 = 'Hermione__Granger'
 
-const normalizer = name => {
-    if (name.includes('.')) {
-        name = name.replaceAll('.', ' ').replace(/\s+/g, ' ');
-    } else if (name.includes('-')) {
-        name = name.replaceAll('-', ' ').replace(/\s+/g, ' ');
-    } else if (name.includes('_')) {
-        name = name.replaceAll('_', ' ').replace(/\s+/g, ' ');
+// Method 1:
+/*const normalizer = (name, symbol) => {
+    if (name.includes(symbol)) {
+        name = name.replaceAll(symbol, ' ').replace(/\s+/g, ' ');
+        return name;
     }
-    return name;
 }
-console.log(normalizer(n1));
-console.log(normalizer(n2));
-console.log(normalizer(n3));*/
+
+console.log(normalizer(n1, '.'));
+console.log(normalizer(n2, '-'));
+console.log(normalizer(n3, '_'));*/
+
+// Method 2:
+/*const normalizer2 = (name, symbol) => {
+     const arr = name.split(symbol);
+     const uniq = [...new Set(arr)];
+     uniq.splice(1, 1);
+     return uniq.join(' ');
+}
+
+console.log(normalizer2(n1, '.'));
+console.log(normalizer2(n2, '-'));
+console.log(normalizer2(n3, '_'));*/
 
 // - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
+
+// ВИКОРИСТОВУВАВ ЦЕЙ ПУСТИЙ МАСИВ І ЦЮ ФУНКЦІЮ ДЛЯ НАСТУПНИХ ЗАДАЧ !
+
 /*const array = [];
 const foo = arr => {
     for (let i = 0; i < 10; i++) {
@@ -52,8 +65,15 @@ console.log(sortedArray);*/
 console.log(filteredArray);*/
 
 // - створити масив рандомних цілих числових значень (або згенерувати, за допомоги попередньої функції) . за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.
+// Method 1:
 /*let arrayToString = foo(array).map(String);
 console.log(arrayToString);*/
+
+// Method 2:
+/*let arrayToString = foo(array).map(number => {
+    return number + '';
+})
+console.log(arrayToString)*/
 
 // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
 // let nums = [11,21,3];

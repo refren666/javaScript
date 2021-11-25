@@ -46,7 +46,7 @@ validator('example@gmail.com', emailSymbolChecker, textBeforeEmailSymbolChecker,
 // Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні". Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.
 //
 // - є масив
-let coursesArray = [
+/*let coursesArray = [
              {
                  title: 'JavaScript Complex',
                  monthDuration: 5,
@@ -114,12 +114,16 @@ let coursesArray = [
                  hourDuration: 909,
                  modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
              }
-         ];
+         ];*/
 //
 //
 // відсортувати його в спадаючому порядку за кількістю елементів в полі modules
-// Цикл в циклі де другий цикл рахує к-ть елементів модулів, потім сортує
 
+/*const sortArrayOfObjectsByAmountOfModules = arr => {
+    return arr.sort((a, b) => b.modules.length - a.modules.length );
+}
+
+console.log(sortArrayOfObjectsByAmountOfModules(coursesArray));*/
 
 // - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
 // let symb = "о", str = "Астрономия это наука о небесных объектах";
