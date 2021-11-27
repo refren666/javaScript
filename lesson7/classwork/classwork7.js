@@ -90,11 +90,42 @@ console.log(car2)*/
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
 // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // За допомоги циклу знайти яка попелюшка повинна бути з принцом.
-// Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
-class Cinderella {
+/*class Cinderella {
     constructor(name, age, footSize) {
         this.name = name;
         this.age = age;
         this.footSize = footSize;
     }
 }
+
+const cinderellas = [
+    new Cinderella('Olya', 20, 38),
+    new Cinderella('Martha', 24, 39),
+    new Cinderella('Olena', 19, 37),
+    new Cinderella('Katya', 21, 41),
+    new Cinderella('Tanya', 22, 40),
+    new Cinderella('Yulia', 22, 36),
+    new Cinderella('Lisa', 18, 37),
+    new Cinderella('Nastya', 22, 35),
+    new Cinderella('Anna', 23, 39),
+    new Cinderella('Natalya', 21, 37)
+]
+
+class Prince {
+    name = 'Ivan';
+    age = 23;
+    foundShoe = 40;
+}
+
+const prince = new Prince()
+
+for (let i = 0; i < cinderellas.length; i++) {
+    const cinderella = cinderellas[i];
+    if (cinderella.footSize === prince.foundShoe) {
+        console.log(`Принцу ${prince.name} підходить попелюшка під іменем ${cinderella.name} з розміром ноги ${cinderella.footSize}`);
+    }
+}
+
+// Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+const findCinderella = cinderellas.find(girl => girl.footSize === prince.foundShoe);
+console.log(findCinderella)*/
