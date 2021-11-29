@@ -47,13 +47,28 @@ class Address {
     }
 }
 
-const address = new Address('Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874',
+class Company {
+    constructor(name, catchPhrase, bs) {
+        this.name = name;
+        this.catchPhrase = catchPhrase;
+        this.bs = bs;
+    }
+}
+
+const user1Address = new Address('Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874',
     {lat: '-37.3159', lng: '81.1496'});
 
-const user = new User(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz', address,
-    '1-770-736-8031 x56442', 'hildegard.org', { name: 'Romaguera-Crona',
-        catchPhrase: 'Multi-layered client-server neural-net', bs: 'harness real-time e-markets'});
-console.log(user); */
+const user1Company = new Company('Romaguera-Crona', 'Multi-layered client-server neural-net',
+    'harness real-time e-markets');
+
+const user1 = new User(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz', user1Address
+    /!* OR { street: 'Kulas Light', suite: 'Apt. 556', city: 'Gwenborough', zipcode: '92998-3874',
+        geo: { lat: '-37.3159', lng: '81.1496' }
+    }*!/,
+    '1-770-736-8031 x56442', 'hildegard.org', user1Company )
+    /!* OR { name: 'Romaguera-Crona', catchPhrase: 'Multi-layered client-server neural-net',
+        bs: 'harness real-time e-markets'});*!/
+console.log(user1);*/
 
 
 // -  Створити функцію конструктор / клас  який описує об'єкт тегу
