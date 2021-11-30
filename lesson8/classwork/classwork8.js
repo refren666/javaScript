@@ -42,7 +42,7 @@ for (let aElem of allElementsWithTagA) {
 
 //     h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
 for (let aElem of allElementsWithTagA) {
-    aElem.classList.add('element_XXX');
+    aElem.classList.add(`element_${aElem.innerText}`)
 }
 
 //     i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
