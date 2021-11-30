@@ -1,6 +1,7 @@
 // 1) Напишіть код, який :
-//     a) змінює колір тексту елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year) ???
+//     a) змінює колір тексту елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
 const mainHeader = document.getElementById('main_header');
+mainHeader.classList.add('september-2021');
 
 //     b) робить шириниу елементу ul 400px
 const ulEl = document.getElementsByTagName('ul')[0];
@@ -39,7 +40,7 @@ for (let aElem of allElementsWithTagA) {
     }
 }
 
-//     h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a ???
+//     h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
 for (let aElem of allElementsWithTagA) {
     aElem.classList.add('element_XXX');
 }
