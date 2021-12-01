@@ -74,7 +74,7 @@ class UserAccount {
     getCardByKey(key) {
         for (let card of this.cards) {
             if (card.key === key) {
-                console.log(card)
+                console.log(card);
             }
         }
     }
