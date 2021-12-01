@@ -1,39 +1,58 @@
-/*
-function userCard(num, balance = 100, transactionLimit = 100) {
-    const user = {
-        balance: balance,
-        transactionLimit: transactionLimit,
-        historyLogs: [
-            {transactionId: 124, transactionSum: 20, date: '20-04-2020'},
-            {transactionId: 151, transactionSum: 50, date: '20-04-2020'},
-            {transactionId: 192, transactionSum: 10, date: '20-04-2020'},
-            {transactionId: 214, transactionSum: 90, date: '20-04-2020'},
-        ],
+const userCard = (num) => {
+    const card = {
+        balance: 100,
+        transactionLimit: 100,
+        historyLog: [],
         key: num
-    };
-
-        const  userChanger = {
-            putCredits: function(amount) {
-                this.balance = this.balance + amount;
-            },
-
-            takeCredits: function(amount) {
-                if (this.balance >= amount && this.transactionLimit >= amount) {
-                    this.balance = this.balance - amount;
-                } else {
-                    console.error('Not enough money for withdrawal or you have exceeded transaction limit')
-                }
-            },
-
-            setTransactionLimit: function(newLimit) {
-                this.transactionLimit = newLimit;
-            },
-
-            transferCredits: function(transferAmount, ) {
-
-            }
     }
-    // return userChanger(3);
+
+    return {
+        putCredits: (amount) => {
+            card.balance = card.balance + amount;
+            card.historyLog.push({ operationType: "Receive credits", credits: amount,
+            operationTime: new Date()})
+        },
+
+        takeCredits: (amount) => {
+            if (card.balance >= amount && card.transactionLimit >= amount) {
+                card.balance = card.balance - amount;
+                card.historyLog.push({ operationType: "Withdraw credits", credits: amount,
+                    operationTime: new Date()})
+            } else {
+                console.error('Not enough money for withdraw or transaction limit was exceeded');
+            }
+        },
+
+        setTransactionLimit: (newLimit) => {
+            card.transactionLimit = newLimit;
+            card.historyLog.push({ operationType: "Set new transaction limit", transactionLimit: newLimit,
+            operationTime: new Date()})
+        },
+
+        transferCredits: (transferAmount, targetCard) => {
+            let taxPercentage = transferAmount * 5 / 100;
+            let transferAmountWithTax = transferAmount + taxPercentage;
+            if (card.balance >= transferAmountWithTax && card.transactionLimit >= transferAmountWithTax) {
+                card.balance = card.balance - transferAmountWithTax;
+                targetCard.balance = targetCard.balance + transferAmount;
+                card.historyLog.push({ operationType: "Credits transfer", credits: transferAmountWithTax,
+                    operationTime: new Date()})
+                targetCard.historyLog.push({ operationType: "Receive credits", credits: transferAmount,
+                    operationTime: new Date()})
+            } else {
+                console.error('Not enough money for transaction or transaction limit was exceeded');
+            }
+        },
+
+        getCardOptions: () => {
+            console.log(card)
+        }
+    }
 }
 
-// const card3= userCard(3);*/
+const card1 = userCard(1);
+const card2 = userCard(2);
+card1.putCredits(100);
+card1.transferCredits(50, card2)
+card1.getCardOptions()
+card2.getCardOptions()
