@@ -56,3 +56,9 @@ card1.putCredits(100);
 card1.transferCredits(50, card2)
 card1.getCardOptions()
 card2.getCardOptions()
+
+class User {
+    constructor(name) {
+
+    }
+}
