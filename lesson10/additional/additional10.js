@@ -35,26 +35,55 @@
 })*/
 
 // -- взять массив пользователей
-let usersWithAddress = [
-                {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-                {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-                {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-                {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-                {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-                {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-                {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-                {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-                {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-                {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-];
+// let usersWithAddress = [
+//                 {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//                 {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+//                 {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+//                 {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+//                 {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+//                 {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+//                 {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+//                 {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+//                 {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+//                 {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//                 {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+// ];
 // - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // 2й - оставляет старше 29 лет включительно
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
-
-
+/*const checkboxForm = document.forms.checkboxForm;
+checkboxForm.addEventListener('submit', e => {
+    e.preventDefault();
+    // const filteredUser = document.createElement('div');
+    // filteredUser.style.border = '1px solid black'
+    if (this.checkbox1.checked && this.checkbox2.checked && this.checkbox3.checked) {
+        const userWithThreeCheckboxes = usersWithAddress.filter(user => !user.status && user.age > 29 && user.address.city === 'Kyiv');
+        console.log(userWithThreeCheckboxes);
+    } else if (this.checkbox1.checked && this.checkbox2.checked) {
+        const userWithFirstAndSecondCheckbox = usersWithAddress.filter(user => !user.status && user.age > 29);
+        console.log(userWithFirstAndSecondCheckbox);
+    } else if (this.checkbox1.checked && this.checkbox3.checked) {
+        const userWithFirstAndThirdCheckbox = usersWithAddress.filter(user => !user.status && user.address.city === 'Kyiv');
+        console.log(userWithFirstAndThirdCheckbox);
+    } else if (this.checkbox2.checked && this.checkbox3.checked) {
+        const userWithSecondAndThirdCheckbox = usersWithAddress.filter(user => user.age > 29 && user.address.city === 'Kyiv');
+        console.log(userWithSecondAndThirdCheckbox)
+    } else if (this.checkbox1.checked) {
+        const usersWithStatusFalse = usersWithAddress.filter(user => !user.status);
+        console.log(usersWithStatusFalse);
+    } else if (this.checkbox2.checked) {
+        const usersWithAgeOver29 = usersWithAddress.filter(user => user.age > 29);
+        console.log(usersWithAgeOver29);
+    } else if (this.checkbox3.checked) {
+        const usersFromKyiv = usersWithAddress.filter(user => user.address.city === 'Kyiv');
+        console.log(usersFromKyiv);
+    } else {
+        console.log(usersWithAddress)
+    }
+    // document.body.appendChild(filteredUser);
+})*/
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
@@ -157,3 +186,20 @@ dotsNav.addEventListener('click', e => {
 
 //  Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 //  *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+
+document.addEventListener('mouseup', () => {
+    // METHOD 1: ADD NEW ELEMENT WITH SELECTED PART
+    const selectedText = document.getSelection().toString();
+    const italicText = document.createElement('div')
+    italicText.innerHTML = selectedText.italics();
+    document.body.appendChild(italicText);
+
+    const boldText = document.createElement('div')
+    boldText.innerHTML = selectedText.bold();
+    document.body.appendChild(boldText);
+
+    // METHOD 2: CHANGE THE TEXT ITSELF BY SELECTED PART
+    /*const myText = document.getElementById('myText');
+    myText.innerHTML = selectedText.bold();*/
+})
+
