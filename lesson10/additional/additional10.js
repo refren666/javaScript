@@ -11,28 +11,34 @@
     }
 })*/
 
+// ------------------------------------------------------------------------------------------------------
 
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 // При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 // Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-/*document.addEventListener('click', (e) => {
-    if (e.target.localName !== 'html' && e.target.localName !== 'body') {
-        const popUpWrapper = document.createElement('div');
-        popUpWrapper.style.marginTop = '5px';
-        popUpWrapper.style.border = '1px solid red';
-        const elementTag = document.createElement('div');
-        elementTag.innerText = `Element tag: ${e.target.localName}`;
-        const elementClasses = document.createElement('div');
-        elementClasses.innerText = `Element classes: ${e.target.className ? e.target.className : '-'}`;
-        const elementId  = document.createElement('div');
-        elementId.innerText = `Element id: ${e.target.id ? e.target.id : '-'}`;
-        const elementSize = document.createElement('div');
-        elementSize.innerText = `Element size: ${e.target.clientHeight}*${e.target.clientWidth}`;
 
-        popUpWrapper.append(elementTag, elementClasses, elementId, elementSize);
-        document.body.appendChild(popUpWrapper);
+/*const closeBtn = document.getElementsByClassName('close-button')[0];
+const overlay = document.getElementsByClassName('overlay')[0];
+const modal = document.getElementsByClassName('modal')[0];
+const modalBody = document.getElementsByClassName('modal__body')[0];
+
+closeBtn.addEventListener('click', () => {
+    modal.classList.toggle('active');
+    overlay.classList.toggle('active');
+})
+
+document.addEventListener('click', (e) => {
+    if (e.target.localName !== 'html' && e.target.localName !== 'body') {
+        modal.classList.toggle('active');
+        overlay.classList.toggle('active');
+        modalBody.innerHTML = `<p>Element tag: ${e.target.localName}</p>
+                                <p>Element classes: ${e.target.className ? e.target.className : '-'}</p>
+                                <p>Element id: ${e.target.id ? e.target.id : '-'}</p>
+                                <p>Element size: ${e.target.clientHeight}*${e.target.clientWidth}</p>`
     }
 })*/
+
+// ------------------------------------------------------------------------------------------------------
 
 // -- взять массив пользователей
 // let usersWithAddress = [
@@ -53,37 +59,51 @@
 // 2й - оставляет старше 29 лет включительно
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
+
 /*const checkboxForm = document.forms.checkboxForm;
+const userFilteredBlock = (filteredUsers,blockToAppend) => {
+    for (const user of filteredUsers) {
+        const userDetailsBlock = document.createElement('div');
+        userDetailsBlock.style.border = '1px solid black';
+        userDetailsBlock.innerText = `Id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}; 
+            address: city: ${user.address.city},  street: ${user.address.street}, number: ${user.address.number}`;
+        blockToAppend.appendChild(userDetailsBlock);
+    }
+}
+
 checkboxForm.addEventListener('submit', e => {
     e.preventDefault();
-    // const filteredUser = document.createElement('div');
-    // filteredUser.style.border = '1px solid black'
+    const filteredUser = document.createElement('div');
+    filteredUser.style.border = '1px solid black';
+    filteredUser.style.marginBottom = '5px';
     if (this.checkbox1.checked && this.checkbox2.checked && this.checkbox3.checked) {
         const userWithThreeCheckboxes = usersWithAddress.filter(user => !user.status && user.age > 29 && user.address.city === 'Kyiv');
-        console.log(userWithThreeCheckboxes);
+        userFilteredBlock(userWithThreeCheckboxes, filteredUser);
     } else if (this.checkbox1.checked && this.checkbox2.checked) {
         const userWithFirstAndSecondCheckbox = usersWithAddress.filter(user => !user.status && user.age > 29);
-        console.log(userWithFirstAndSecondCheckbox);
+        userFilteredBlock(userWithFirstAndSecondCheckbox, filteredUser);
     } else if (this.checkbox1.checked && this.checkbox3.checked) {
         const userWithFirstAndThirdCheckbox = usersWithAddress.filter(user => !user.status && user.address.city === 'Kyiv');
-        console.log(userWithFirstAndThirdCheckbox);
+        userFilteredBlock(userWithFirstAndThirdCheckbox, filteredUser);
     } else if (this.checkbox2.checked && this.checkbox3.checked) {
         const userWithSecondAndThirdCheckbox = usersWithAddress.filter(user => user.age > 29 && user.address.city === 'Kyiv');
-        console.log(userWithSecondAndThirdCheckbox)
+        userFilteredBlock(userWithSecondAndThirdCheckbox, filteredUser);
     } else if (this.checkbox1.checked) {
         const usersWithStatusFalse = usersWithAddress.filter(user => !user.status);
-        console.log(usersWithStatusFalse);
+        userFilteredBlock(usersWithStatusFalse, filteredUser);
     } else if (this.checkbox2.checked) {
         const usersWithAgeOver29 = usersWithAddress.filter(user => user.age > 29);
-        console.log(usersWithAgeOver29);
+        userFilteredBlock(usersWithAgeOver29, filteredUser);
     } else if (this.checkbox3.checked) {
         const usersFromKyiv = usersWithAddress.filter(user => user.address.city === 'Kyiv');
-        console.log(usersFromKyiv);
+        userFilteredBlock(usersFromKyiv, filteredUser);
     } else {
-        console.log(usersWithAddress)
+        userFilteredBlock(usersWithAddress, filteredUser);
     }
-    // document.body.appendChild(filteredUser);
+    document.body.appendChild(filteredUser);
 })*/
+
+// ------------------------------------------------------------------------------------------------------
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
@@ -91,6 +111,7 @@ checkboxForm.addEventListener('submit', e => {
 // Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 //
 
+// ------------------------------------------------------------------------------------------------------
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 /*const track = document.getElementsByClassName('carousel__track')[0];
@@ -183,23 +204,27 @@ dotsNav.addEventListener('click', e => {
     arrowHandler(slides, prevBtn, nextBtn, targetIndex);
 })*/
 
+// ------------------------------------------------------------------------------------------------------
 
 //  Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 //  *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-document.addEventListener('mouseup', () => {
-    // METHOD 1: ADD NEW ELEMENT WITH SELECTED PART
+/*document.addEventListener('mouseup', () => {
     const selectedText = document.getSelection().toString();
-    const italicText = document.createElement('div')
+
+    // METHOD 1: ADD NEW ELEMENT WITH SELECTED PART
+
+    /!*const italicText = document.createElement('div');
     italicText.innerHTML = selectedText.italics();
     document.body.appendChild(italicText);
 
     const boldText = document.createElement('div')
     boldText.innerHTML = selectedText.bold();
-    document.body.appendChild(boldText);
+    document.body.appendChild(boldText);*!/
 
     // METHOD 2: CHANGE THE TEXT ITSELF BY SELECTED PART
-    /*const myText = document.getElementById('myText');
-    myText.innerHTML = selectedText.bold();*/
-})
+
+    const myText = document.getElementById('myText');
+    myText.innerHTML = selectedText.bold();
+})*/
 
