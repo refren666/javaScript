@@ -54,10 +54,10 @@ formBtn.setAttribute('type', 'submit');
 
 formBtn.onclick = (e) => {
     e.preventDefault();
-    for (let i = 0; i < uncensoredArray.length; i++) {
-        if (textInput.value === uncensoredArray[i]) {
-            alert('Ата-та');
-        }
+    if (uncensoredArray.includes(textInput.value)) {
+        alert('Ата-та');
+    } else {
+        alert('Не є нецензурним словом');
     }
 
     // OR
@@ -76,27 +76,27 @@ document.body.appendChild(form);*/
 // Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
-// const uncensoredArray = ['callback', 'recursion', 'callback and recursion', 'regExp', 'destructuring', 'nested loop', 'proxy'];
-// const form = document.createElement('form');
-// const textInput = document.createElement('input');
-// textInput.setAttribute('type', 'text');
-// const btn = document.createElement('input');
-// btn.setAttribute('type', 'submit');
-// btn.innerText = 'Click';
-// btn.addEventListener('click', e => {
-//     e.preventDefault();
-//     // for (let i = 0; i < uncensoredArray.length; i++) {
-//     //     if (textInput.value.includes(uncensoredArray[i])) {
-//     //         alert()
-//     //     }
-//     // }
-//
-//     // OR
-//
-//     const swearWordsFilter = uncensoredArray.filter(word => textInput.value.includes(word));
-//     alert('Your input contains swear word');
-// })
-//
-// form.appendChild(textInput);
-// form.appendChild(btn);
-// document.body.appendChild(form);
+/*const uncensoredArray = ['callback', 'recursion', 'callback and recursion', 'regExp', 'destructuring', 'nested loop', 'proxy'];
+const form = document.createElement('form');
+const textInput = document.createElement('input');
+textInput.setAttribute('type', 'text');
+const btn = document.createElement('input');
+btn.setAttribute('type', 'submit');
+btn.innerText = 'Click';
+btn.addEventListener('click', e => {
+    e.preventDefault();
+    // for (let i = 0; i < uncensoredArray.length; i++) {
+    //     if (textInput.value.includes(uncensoredArray[i])) {
+    //         alert()
+    //     }
+    // }
+
+    // OR
+
+    const swearWordsFilter = uncensoredArray.filter(word => textInput.value.includes(word));
+    alert('Your input contains swear word');
+})
+
+form.appendChild(textInput);
+form.appendChild(btn);
+document.body.appendChild(form);*/
