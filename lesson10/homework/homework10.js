@@ -29,7 +29,8 @@ const ageValueId = document.getElementById('ageValue');
 
 submitBtnId.onclick = (e) => {
     e.preventDefault();
-    if (ageValueId.value >= 18) {
+    console.log(+ageValueId.value)
+    if (+ageValueId.value >= 18) {
         alert('You have passed the age verification, enjoy!');
     } else {
         alert('You have failed the age verification, website content is unavailable for you.')
