@@ -22,17 +22,6 @@ const overlay = document.getElementsByClassName('overlay')[0];
 const modal = document.getElementsByClassName('modal')[0];
 const modalBody = document.getElementsByClassName('modal__body')[0];
 
-// closeBtn.addEventListener('click', () => {
-//     modal.classList.toggle('active');
-//     overlay.classList.toggle('active');
-// })
-document.addEventListener('click', e => {
-    if (e.target.closest(closeBtn)) {
-        modal.classList.remove('active');
-        overlay.classList.remove('active');
-    }
-})
-
 document.addEventListener('click', (e) => {
     if (e.target.localName !== 'html' && e.target.localName !== 'body') {
         modal.classList.toggle('active');
