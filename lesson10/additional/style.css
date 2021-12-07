@@ -6,6 +6,8 @@
 
 .figures {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .big-text {
@@ -16,7 +18,7 @@
 
 .block {
     width: 200px;
-    height: 75px;
+    height: 200px;
     background-color: cornflowerblue;
 }
 
@@ -24,6 +26,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    background-color: steelblue;
 }
 
 .modal {

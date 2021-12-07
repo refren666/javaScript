@@ -17,14 +17,20 @@
 // При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 // Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 
-/*const closeBtn = document.getElementsByClassName('close-button')[0];
+const closeBtn = document.getElementsByClassName('close-button')[0];
 const overlay = document.getElementsByClassName('overlay')[0];
 const modal = document.getElementsByClassName('modal')[0];
 const modalBody = document.getElementsByClassName('modal__body')[0];
 
-closeBtn.addEventListener('click', () => {
-    modal.classList.toggle('active');
-    overlay.classList.toggle('active');
+// closeBtn.addEventListener('click', () => {
+//     modal.classList.toggle('active');
+//     overlay.classList.toggle('active');
+// })
+document.addEventListener('click', e => {
+    if (e.target.closest(closeBtn)) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    }
 })
 
 document.addEventListener('click', (e) => {
@@ -36,7 +42,7 @@ document.addEventListener('click', (e) => {
                                 <p>Element id: ${e.target.id ? e.target.id : '-'}</p>
                                 <p>Element size: ${e.target.clientHeight}*${e.target.clientWidth}</p>`
     }
-})*/
+})
 
 // ------------------------------------------------------------------------------------------------------
 
