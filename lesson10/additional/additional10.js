@@ -104,7 +104,49 @@ checkboxForm.addEventListener('submit', e => {
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 // Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-//
+const elem = document.getElementsByClassName('main-block')[0];
+const leftBtn = document.createElement('img');
+leftBtn.src = 'icons/arrow_left.svg';
+leftBtn.style.width = '15px';
+const rightBtn = document.createElement('img');
+rightBtn.src = 'icons/arrow_right.svg';
+rightBtn.style.width = '15px';
+rightBtn.style.cursor = 'pointer';
+function recursion(domElement) {
+    console.log(domElement);
+    let counter = 1;
+    rightBtn.onclick = function() {
+        if (domElement.children.length) {
+            for (let i = 0; i < counter; i++) {
+                let children = domElement.children[i];
+                recursion(children)
+            }
+        }
+    }
+        // знайти першого нащадка цього елементу і вивести його, якщо немає дітей то вивести наступного нащадка
+
+        // якщо в нащадка є діти, виводити кожну дитину окремо
+
+    document.body.append(leftBtn, rightBtn);
+}
+
+recursion(elem);
+
+// testing
+// console.log(elem.children)
+
+// template:
+/*const elem = document.getElementsByClassName('main-block')[0];
+function reCall(startElement) {
+    console.log(startElement);
+    if (startElement.children.length) {
+        for (const children of startElement.children) {
+            reCall(children);
+        }
+    }
+}
+
+reCall(elem)*/
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -204,22 +246,8 @@ dotsNav.addEventListener('click', e => {
 //  Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 //  *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-/*document.addEventListener('mouseup', () => {
+/*const textblock = document.getElementById('textBlock');
+document.addEventListener('mouseup', () => {
     const selectedText = document.getSelection().toString();
-
-    // METHOD 1: ADD NEW ELEMENT WITH SELECTED PART
-
-    /!*const italicText = document.createElement('div');
-    italicText.innerHTML = selectedText.italics();
-    document.body.appendChild(italicText);
-
-    const boldText = document.createElement('div')
-    boldText.innerHTML = selectedText.bold();
-    document.body.appendChild(boldText);*!/
-
-    // METHOD 2: CHANGE THE TEXT ITSELF BY SELECTED PART
-
-    const myText = document.getElementById('myText');
-    myText.innerHTML = selectedText.bold();
+    textblock.innerHTML = selectedText.replace(selectedText, selectedText.bold());
 })*/
-
