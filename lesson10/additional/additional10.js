@@ -104,7 +104,7 @@ checkboxForm.addEventListener('submit', e => {
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 // Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-const elem = document.getElementsByClassName('main-block')[0];
+/*const elem = document.getElementsByClassName('main-block')[0];
 const leftBtn = document.createElement('img');
 leftBtn.src = 'icons/arrow_left.svg';
 leftBtn.style.width = '15px';
@@ -130,7 +130,7 @@ function recursion(domElement) {
     document.body.append(leftBtn, rightBtn);
 }
 
-recursion(elem);
+recursion(elem);*/
 
 // testing
 // console.log(elem.children)
@@ -251,3 +251,32 @@ document.addEventListener('mouseup', () => {
     const selectedText = document.getSelection().toString();
     textblock.innerHTML = selectedText.replace(selectedText, selectedText.bold());
 })*/
+
+let content = document.createElement('content');
+content.classList.add('#content');
+content.innerHTML = 'Вижіли текст і подивись що відбувається. Тут буде міні магія. Удачі. Всіх благ';
+//
+// let p = document.createElement('p');
+document.body.appendChild(content);
+// content.addEventListener('mouseup', function () {
+//     let selectText = document.getSelection().toString();
+//     let newText = content.innerHTML.replace(selectText, `<i><b>${selectText}</b></i>`);
+//     content.innerHTML = newText;
+//     p.innerHTML = selectText.bold().fontcolor('red').fontsize('52px');  // повертає нам виділений (змінений) текст в нове поле. (можна цього і не робити)
+//     document.body.appendChild(p);
+// });
+
+// document.addEventListener('mouseup', event => {
+//     if (window.getSelection().toString().length) {
+//         let selection = window.getSelection().getRangeAt(0);
+//         let selectedText = selection.extractContents();
+//         let span = document.createElement('span');
+//         span.style.backgroundColor = "yellow";
+//         span.style.zIndex = '0';
+//         span.style.fontWeight = "bold";
+//         span.appendChild(selectedText);
+//         selection.insertNode(span);
+//     }
+// })
+//
+// document.write('<hr>');

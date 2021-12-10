@@ -23,7 +23,7 @@ document.body.appendChild(form);*/
 
 // -створити форму з інпутами для model,type та volume автівки.
 // при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.
-/*const form = document.createElement('form');
+const form = document.createElement('form');
 const modelInput = document.createElement('input');
 modelInput.setAttribute('placeholder', 'Car model');
 const typeInput = document.createElement('input');
@@ -33,14 +33,18 @@ volumeInput.setAttribute('type', 'number');
 volumeInput.setAttribute('placeholder', 'Car volume');
 const btn = document.createElement('button');
 btn.innerText = 'Send';
+const carsInfo = 'carsInfo';
 
 btn.onclick = (e) => {
     e.preventDefault();
-    localStorage.setItem('car info', JSON.stringify([modelInput.value, typeInput.value, +volumeInput.value]));
+    const carArray = JSON.parse(localStorage.getItem(carsInfo)) ?? []; // перевірка чи є ключ в сховищі, якщо null то змінній присвоюєм пустий масив
+    carArray.push({model: modelInput.value, type: typeInput.value, volume: +volumeInput.value});
+    localStorage.setItem(carsInfo, JSON.stringify(carArray));
 }
 
 form.append(modelInput, typeInput, volumeInput, btn);
-document.body.appendChild(form);*/
+document.body.appendChild(form);
+
 
 // TEST
 // const myInfo = localStorage.getItem('car info');
