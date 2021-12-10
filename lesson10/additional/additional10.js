@@ -254,7 +254,7 @@ document.addEventListener('mouseup', () => {
 
 let content = document.createElement('content');
 content.classList.add('#content');
-content.innerHTML = 'Вижіли текст і подивись що відбувається. Тут буде міні магія. Удачі. Всіх благ';
+content.innerHTML = 'Виділи текст і подивись що відбувається. Тут буде міні магія. Удачі. Всіх благ';
 //
 // let p = document.createElement('p');
 document.body.appendChild(content);

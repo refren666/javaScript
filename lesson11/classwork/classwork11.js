@@ -14,26 +14,37 @@ let users = [
 ];
 // створити під кожен об'єкт свій блок з конопкою "додати до улюблених" при натисканні на яку об'єкт потрапляє до масиву
 // favorites улюблених обраних об'єктів в локальному сховищі.
-
-const favoriteUsers = [];
 for (let user of users) {
-    const userBlockContainer = document.createElement('div')
+    const userBlockContainer = document.createElement('div');
     const userBlock = document.createElement('span');
     userBlock.innerText = `Name: ${user.name}, age: ${user.age}, status: ${user.status}`;
     userBlock.style.border = '2px solid black';
     userBlock.style.marginRight = '5px';
     userBlock.style.padding = '2px';
-    const addToFavouritesBtn = document.createElement('button');
-    addToFavouritesBtn.innerText = 'Add to favorites';
-    addToFavouritesBtn.style.marginBottom = '5px';
-    addToFavouritesBtn.style.padding = '4px';
-    userBlockContainer.append(userBlock, addToFavouritesBtn);
+    const addToFavoritesBtn = document.createElement('button');
+    addToFavoritesBtn.innerText = 'Add to favorites';
+    addToFavoritesBtn.style.marginBottom = '5px';
+    addToFavoritesBtn.style.padding = '4px';
+    userBlockContainer.append(userBlock, addToFavoritesBtn);
     document.body.appendChild(userBlockContainer);
 
-    addToFavouritesBtn.onclick = () => {
-        favoriteUsers.push(user)
-        localStorage.setItem('favourites' , JSON.stringify(favoriteUsers));
+    const favoriteUsers = 'favoriteUsers';
+
+    addToFavoritesBtn.onclick = () => {
+        const favoriteUsersArray = JSON.parse(localStorage.getItem(favoriteUsers)) ?? [];
+        const findDuplicate = favoriteUsersArray.find(el => el.name === user.name && el.age === user.age && el.status === user.status);
+        if (favoriteUsersArray.includes(findDuplicate)) {
+            return;
+        } else {
+            favoriteUsersArray.push(user);
+        }
+        localStorage.setItem(favoriteUsers, JSON.stringify(favoriteUsersArray));
     }
 }
 
 // localStorage.clear()
+
+const toFavorites = document.createElement('a');
+toFavorites.href = 'favorites.html';
+toFavorites.innerText = 'To favorites';
+document.body.appendChild(toFavorites);
