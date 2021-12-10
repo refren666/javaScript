@@ -15,11 +15,6 @@ btn.onclick = (e) => {
 form.append(nameInput, ageInput, btn);
 document.body.appendChild(form);*/
 
-// TEST
-// const myInfo = localStorage.getItem('user info');
-// const obj = JSON.parse(myInfo)
-// console.log(obj);
-
 
 // -створити форму з інпутами для model,type та volume автівки.
 // при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.
@@ -44,9 +39,3 @@ btn.onclick = (e) => {
 
 form.append(modelInput, typeInput, volumeInput, btn);
 document.body.appendChild(form);
-
-
-// TEST
-// const myInfo = localStorage.getItem('car info');
-// const arr = JSON.parse(myInfo)
-// console.log(arr);
