@@ -1,0 +1,18 @@
+p,
+h3 {
+    margin: 3px;
+}
+
+.post-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.post {
+    border: 1px solid black;
+}
+
+.comment {
+    margin-bottom: 20px;
+    border: 2px solid black;
+}
