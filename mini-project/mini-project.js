@@ -13,17 +13,26 @@
 // 7 Вывести всю, без исключения, информацию про объект post на кнопку/ссылку которого был совершен клик ранее.
 // 8 Ниже информации про пост, вывести все комментарии текущего поста (эндпоинт для получения информации -
 // https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
+
+// Стилизация проекта -
+// index.html - все блоки с user - по 2 в ряд. кнопки/ссылки находяться под информацией про user.
+// user-details.html - блок с информацией про user вверху страницы. Кнопка ниже, на 90% ширины страницы, по центру.
+// блоки с краткой информацией про post - в ряд по 5 объектов.
+// post-details.html - блок с информацией про пост вверху. Комментарии - по 4 в ряд.
+// Все без исключения элементы, который характеризируют user,post,comment  визуализировать, так, что бы было видно их
+// блоки (дать задний фон + margin. Иными словами - крайне четкая сетка)
+
+const usersWrapper = document.createElement('div');
+usersWrapper.style.display = 'grid';
+usersWrapper.style.gap = '5px';
+usersWrapper.style.gridTemplateColumns = 'repeat(2, 1fr)';
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(usersArray => {
         usersArray.forEach(user => {
-            const usersWrapper = document.createElement('div');
-            usersWrapper.style.display = 'grid';
-            usersWrapper.style.gridTemplateColumns = 'repeat(2, 1fr)';
-
             const userBlock = document.createElement('div');
             userBlock.style.border = '1px solid crimson';
-            userBlock.style.marginBottom = '10px';
+            userBlock.style.backgroundColor = '#dbbfc6';
             userBlock.style.padding = '5px';
             userBlock.innerHTML = `<h2>ID: ${user.id}</h2>
                                    <h3>Name: ${user.name}</h3>`
@@ -40,14 +49,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
             userBlock.appendChild(detailsLink);
             usersWrapper.appendChild(userBlock);
-            document.body.appendChild(usersWrapper);
         })
     })
+document.body.appendChild(usersWrapper);
 
-// Стилизация проекта -
-// index.html - все блоки с user - по 2 в ряд. кнопки/ссылки находяться под информацией про user.
-// user-details.html - блок с информацией про user вверху страницы. Кнопка ниже, на 90% ширины страницы, по центру.
-// блоки с краткой информацией про post - в ряд по 5 объектов.
-// post-details.html - блок с информацией про пост вверху. Комментарии - по 4 в ряд.
-// Все без исключения элементы, который характеризируют user,post,comment  визуализировать, так, что бы было видно их
-// блоки (дать задний фон + margin. Иными словами - крайне четкая сетка)

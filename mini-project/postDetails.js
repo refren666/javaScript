@@ -10,13 +10,17 @@ const titleBlock = document.createElement('h2');
 titleBlock.innerText = 'Comments related to this post: ';
 document.body.append(postBlock,titleBlock);
 
+const commentsWrapper = document.createElement('div');
+commentsWrapper.style.display = 'grid';
+commentsWrapper.style.gap = '5px';
+commentsWrapper.style.gridTemplateColumns = 'repeat(4, 1fr)';
 fetch(`https://jsonplaceholder.typicode.com/posts/${targetPost.id}/comments`)
     .then(response => response.json())
     .then(commentsArray => {
         commentsArray.forEach(comment => {
             const commentBlock = document.createElement('div');
             commentBlock.style.border = '1px solid #666';
-            commentBlock.style.marginBottom = '10px';
+            commentBlock.style.backgroundColor = '#f2f2f2';
             commentBlock.style.padding = '5px';
             commentBlock.innerHTML = `
             <h3>PostId: ${comment.postId}</h3>
@@ -25,7 +29,8 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${targetPost.id}/comments`)
             <p>Email: ${comment.email}</p>
             <p>Body: ${comment.body}</p>
 `
-            document.body.append(commentBlock);
+            commentsWrapper.appendChild(commentBlock);
         })
     })
 
+document.body.appendChild(commentsWrapper);

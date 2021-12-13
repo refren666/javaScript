@@ -60,15 +60,21 @@ geoWrapper.append(lat, lng);
 companyWrapper.append(companyName, companyCatchPhrase, companyBs);
 document.body.append(wrapper, userPostsBtn);
 
+const postsWrapper = document.createElement('div');
+postsWrapper.style.display = 'grid';
+postsWrapper.style.gap = '5px';
+postsWrapper.style.marginTop = '10px';
+postsWrapper.style.gridTemplateColumns = 'repeat(5, 1fr)';
+
 userPostsBtn.addEventListener('click', () => {
     fetch(`https://jsonplaceholder.typicode.com/users/${targetUser.id}/posts`)
         .then(response => response.json())
         .then(postArray => {
             postArray.forEach(post => {
-                const postWrapper = document.createElement('div');
-                postWrapper.style.border = '1px solid cornflowerblue';
-                postWrapper.style.margin = '10px 0';
-                postWrapper.style.padding = '5px';
+                const postBlock = document.createElement('div');
+                postBlock.style.border = '1px solid cornflowerblue';
+                postBlock.style.backgroundColor = '#c5dae3';
+                postBlock.style.padding = '5px';
                 const titleBlock = document.createElement('h3');
                 titleBlock.innerText = `Post title: ${post.title}`;
                 const postsLink = document.createElement('a');
@@ -82,8 +88,9 @@ userPostsBtn.addEventListener('click', () => {
                     localStorage.setItem('targetPost', JSON.stringify(post));
                 })
 
-                postWrapper.append(titleBlock, postsLink);
-                document.body.appendChild(postWrapper);
+                postBlock.append(titleBlock, postsLink);
+                postsWrapper.appendChild(postBlock);
             });
         })
 }, {once: true});
+document.body.appendChild(postsWrapper);
