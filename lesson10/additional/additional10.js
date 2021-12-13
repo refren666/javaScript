@@ -112,33 +112,35 @@ const rightBtn = document.createElement('img');
 rightBtn.src = 'icons/arrow_right.svg';
 rightBtn.style.width = '15px';
 rightBtn.style.cursor = 'pointer';
+const elementsArray = [];
 function recursion(domElement) {
-    console.log(domElement);
-    let counter = 1;
     rightBtn.onclick = function() {
         if (domElement.children.length) {
-            for (let i = 0; i < counter; i++) {
-                let children = domElement.children[i];
-                recursion(children)
+            // debugger
+            for (let i = 0; i < domElement.children.length; i++) {
+                let children = domElement.children;
+                elementsArray.push(children[i]);
+                console.log(elementsArray[elementsArray.length - 1]);
+                console.log(elementsArray);
+                if (elementsArray.length > i) break;
             }
+            recursion(elementsArray[elementsArray.length - 1]);
+        } else {
+            console.log(domElement.nextElementSibling);
         }
     }
         // знайти першого нащадка цього елементу і вивести його, якщо немає дітей то вивести наступного нащадка
-
         // якщо в нащадка є діти, виводити кожну дитину окремо
-
-    document.body.append(leftBtn, rightBtn);
 }
-
+document.body.append(leftBtn, rightBtn);
 recursion(elem);*/
 
-// testing
-// console.log(elem.children)
 
 // template:
-/*const elem = document.getElementsByClassName('main-block')[0];
+const elem = document.getElementsByClassName('main-block')[0];
 function reCall(startElement) {
     console.log(startElement);
+    // debugger
     if (startElement.children.length) {
         for (const children of startElement.children) {
             reCall(children);
@@ -146,7 +148,7 @@ function reCall(startElement) {
     }
 }
 
-reCall(elem)*/
+reCall(elem)
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -252,12 +254,15 @@ document.addEventListener('mouseup', () => {
     textblock.innerHTML = selectedText.replace(selectedText, selectedText.bold());
 })*/
 
-let content = document.createElement('content');
+// FOR METHOD 2 AND 3:
+/*let content = document.createElement('content');
 content.classList.add('#content');
 content.innerHTML = 'Виділи текст і подивись що відбувається. Тут буде міні магія. Удачі. Всіх благ';
 //
-// let p = document.createElement('p');
-document.body.appendChild(content);
+let p = document.createElement('p');
+document.body.appendChild(content);*/
+
+// METHOD 2:
 // content.addEventListener('mouseup', function () {
 //     let selectText = document.getSelection().toString();
 //     let newText = content.innerHTML.replace(selectText, `<i><b>${selectText}</b></i>`);
@@ -266,7 +271,8 @@ document.body.appendChild(content);
 //     document.body.appendChild(p);
 // });
 
-// document.addEventListener('mouseup', event => {
+// METHOD 3:
+// document.addEventListener('selectionchange', event => {
 //     if (window.getSelection().toString().length) {
 //         let selection = window.getSelection().getRangeAt(0);
 //         let selectedText = selection.extractContents();
