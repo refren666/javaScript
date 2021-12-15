@@ -3,8 +3,9 @@ const itemsWrapper = document.createElement('div');
 itemsWrapper.style.display = 'grid';
 itemsWrapper.style.gridTemplateColumns = 'repeat(3, 1fr)';
 
-itemsArr.forEach(item => {
+itemsArr.forEach((item, index) => {
     const itemBlock = document.createElement('div');
+    itemBlock.classList.add(`Item${index + 1}`)
     itemBlock.innerHTML = `<h3>Item name: ${item.name}</h3>
                            <p>Amount: ${item.amount}</p>
                            <p>Price: ${item.price}$</p>
@@ -16,6 +17,8 @@ itemsArr.forEach(item => {
     deleteItemFromCartBtn.addEventListener('click', () => {
         const filteredArray = itemsArr.filter(element => element.name !== item.name);
         localStorage.setItem('shoppingItems', JSON.stringify(filteredArray));
+        const targetItem = document.getElementsByClassName(`Item${index + 1}`)[0];
+        targetItem.style.display = 'none';
     })
 
     itemBlock.appendChild(deleteItemFromCartBtn);
@@ -37,6 +40,7 @@ deleteAllBtn.style.color = '#fff';
 
 deleteAllBtn.addEventListener('click', () => {
     localStorage.clear();
+    itemsWrapper.style.display = 'none';
 })
 
 document.body.append(itemsWrapper, deleteAllBtn);
