@@ -46,65 +46,99 @@
 }, 500)*/
 
 // Promises:
-/*const routine = new Promise((resolve, reject) => {
+/*new Promise(((resolve, reject) => {
     setTimeout(() => {
-        resolve ();
-        console.log('Woke up');
-    }, 300)
-}).then(()=> {
-    setTimeout(() => {
-        console.log('Brushed Teeth');
-    }, 700)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Had breakfast');
-    }, 1500)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Dressed up');
-    }, 1800)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Went to the bus station');
-    }, 2100)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Arrived to the workplace');
-    }, 2600)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Had lunch');
-    }, 3000)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Participated in the meeting');
-    }, 3400)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Finished working');
-    }, 4200)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Arrived home');
-    }, 4800)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Had dinner');
-    }, 5100)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Brushed teeth');
-    }, 5500)
-}).then(() => {
-    setTimeout(() => {
-        console.log('Went to sleep');
-    }, 6000)
-}).catch(e => {
-    console.error(e);
+        resolve('Woke up');
+    }, 1000)
+}))
+    .then((firstAction) => {
+        console.log(firstAction);
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Brushed teeth');
+            }, 600)
+        })
+    }).then((secondAction) => {
+    console.log(secondAction);
+    return new Promise(((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Had breakfast');
+        }, 500)
+    }))
+}).then((thirdAction) => {
+    console.log(thirdAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Dressed up');
+        }, 1100)
+    })
+}).then((fourthAction) => {
+    console.log(fourthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Went to the bus station');
+        }, 800)
+    })
+}).then((fifthAction) => {
+    console.log(fifthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Arrived to the workplace');
+        }, 1000)
+    })
+}).then((sixthAction) => {
+    console.log(sixthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Had lunch');
+        }, 1200)
+    })
+}).then((seventhAction) => {
+    console.log(seventhAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Participated in the meeting');
+        }, 900)
+    })
+}).then((eighthsAction) => {
+    console.log(eighthsAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Finished working');
+        }, 600)
+    })
+}).then((ninthAction) => {
+    console.log(ninthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Arrived home');
+        }, 800)
+    })
+}).then((tenthAction) => {
+    console.log(tenthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Had dinner');
+        }, 700)
+    })
+}).then((eleventhAction) => {
+    console.log(eleventhAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Brushed teeth');
+        }, 1000)
+    })
+}).then((twelfthAction) => {
+    console.log(twelfthAction);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Went to sleep');
+        }, 1500)
+    })
 })*/
 
 // async/await:
-async function routine() {
+/*async function routine() {
     const s1 = await new Promise((resolve) => setTimeout(() => {
         resolve();
         console.log('Woke up')
@@ -159,4 +193,5 @@ async function routine() {
     }, 500))
 }
 
-routine()
+routine()*/
+
