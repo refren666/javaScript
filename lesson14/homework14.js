@@ -46,7 +46,7 @@
 }, 500)*/
 
 // Promises:
-/*new Promise(((resolve, reject) => {
+new Promise(((resolve, reject) => {
     setTimeout(() => {
         resolve('Woke up');
     }, 1000)
@@ -135,7 +135,11 @@
             resolve('Went to sleep');
         }, 1500)
     })
-})*/
+}).then((thirteenthAction) => {
+    console.log(thirteenthAction)
+}).catch((error) => {
+    console.error(error)
+})
 
 // async/await:
 /*async function routine() {
