@@ -5,197 +5,327 @@
 // // Напиклад. // Прикнутись - 0.3с // Поснідати - 1с // Піти в душ - 0.5с // Дочекатись автобус - 3с // Пообідати - 1с // // І так далі
 
 // Callbacks:
-/*setTimeout(()=> {
-    console.log('Woke up');
-    setTimeout(() => {
-        console.log('Brushed Teeth');
-        setTimeout(() => {
-            console.log('Had breakfast');
-            setTimeout(() => {
-                console.log('Dressed up');
-                setTimeout(() => {
-                    console.log('Went to the bus station');
-                    setTimeout(() => {
-                        console.log('Arrived to the workplace');
-                        setTimeout(() => {
-                            console.log('Had lunch');
-                            setTimeout(() => {
-                                console.log('Participated in the meeting');
-                                setTimeout(() => {
-                                    console.log('Finished working');
-                                    setTimeout(() => {
-                                        console.log('Arrived home');
-                                        setTimeout(() => {
-                                            console.log('Had dinner');
-                                            setTimeout(() => {
-                                                console.log('Brushed teeth');
-                                                setTimeout(() => {
-                                                    console.log('Went to sleep');
-                                                }, 900)
-                                            }, 800)
-                                        }, 800)
-                                    }, 1200)
-                                }, 1400)
-                            }, 3000)
-                        }, 1100)
-                    }, 2000)
-                }, 1500)
-            }, 1000)
-        }, 400)
-    }, 700)
-}, 500)*/
+
+// const startOfADay = (isDayOff, callback) => {
+//     setTimeout(() => {
+//         if (!isDayOff) {
+//             callback(null, 'Waking up...'); // Error first, data last!
+//         } else {
+//             callback('Sleep whole day...', null);
+//         }
+//     }, 1000)
+// }
+//
+// const brushTeeth = (isToothpaste, callback) => {
+//     setTimeout(() => {
+//         if (isToothpaste) {
+//             callback(null, 'Brushing teeth...');
+//         } else {
+//             callback('No toothpaste...', null);
+//         }
+//     }, 800)
+// }
+//
+// const eatFood = (isFood, callback) => {
+//     setTimeout(() => {
+//         if (isFood) {
+//             callback(null, 'Eating food...');
+//         } else {
+//             callback('Need to buy some food...', null);
+//         }
+//     }, 1200)
+// }
+//
+// const dressUp = (isClothes, callback) => {
+//     setTimeout(() => {
+//         if (isClothes) {
+//             callback(null, 'Dressing up...');
+//         } else {
+//             callback('Nothing to wear...', null);
+//         }
+//     }, 700)
+// }
+//
+// const commuting = (isGoodWeather, isDisaster = false, callback) => {
+//     setTimeout(() => {
+//         if (isDisaster) {
+//             callback('Staying home...', null);
+//         } else if (isGoodWeather) {
+//             callback(null, 'Going to bus station...');
+//         } else if (!isGoodWeather) {
+//             callback(null, 'Taking taxi...');
+//         }
+//     }, 1200)
+// }
+//
+// const doWork = (callback) => {
+//     setTimeout(() => {
+//         callback('Working...');
+//     }, 2000)
+// }
+//
+// const goBackHome = (isWorkDone, callback) => {
+//     setTimeout(() => {
+//         if (isWorkDone) {
+//             callback(null, 'Going back home...');
+//         } else {
+//             callback('Continue working...', null);
+//         }
+//     }, 1300)
+// }
+//
+// const goSleep = (tired, callback) => {
+//     setTimeout(() => {
+//         if (tired) {
+//             callback(null, 'Going to sleep...');
+//         } else {
+//             callback('Watching films...', null);
+//         }
+//     }, 1400)
+//
+// }
+//
+// startOfADay(false, (error, start) => {
+//     if (error) {
+//         console.error(error);
+//     } else {
+//         console.log(start);
+//         brushTeeth(true, (error2, brush) => {
+//             if (error2) {
+//                 console.error(error2);
+//             } else {
+//                 console.log(brush);
+//                 eatFood(true, (error0, eat) => {
+//                     if (error0) {
+//                         console.error(error0);
+//                     } else {
+//                         console.log(eat);
+//                         dressUp(true, (error3, dressing) => {
+//                             if (error3) {
+//                                 console.error(error3);
+//                             } else {
+//                                 console.log(dressing);
+//                                 commuting(true, false, (error4, commute) => {
+//                                     if (error4) {
+//                                         console.error(error4);
+//                                     } else {
+//                                         console.log(commute);
+//                                         doWork(work => {
+//                                             console.log(work);
+//                                             goBackHome(true, (error5, goBack) => {
+//                                                 if (error5) {
+//                                                     console.error(error5);
+//                                                 } else {
+//                                                     console.log(goBack);
+//                                                     eatFood(true, (error6, eat) => {
+//                                                         if (error6) {
+//                                                             console.error(error6);
+//                                                         } else {
+//                                                             console.log(eat);
+//                                                             brushTeeth(true, (error7, brush) => {
+//                                                                 if (error7) {
+//                                                                     console.error(error7);
+//                                                                 } else {
+//                                                                     console.log(brush);
+//                                                                     goSleep(true, (error8, finish) => {
+//                                                                         if (error8) {
+//                                                                             console.error(error8);
+//                                                                         } else {
+//                                                                             console.log(finish);
+//                                                                         }
+//                                                                     })
+//                                                                 }
+//                                                             })
+//                                                         }
+//                                                     })
+//                                                 }
+//                                             })
+//                                         })
+//                                     }
+//                                 })
+//                             }
+//                         })
+//                     }
+//                 })
+//             }
+//         })
+//     }
+// })
+
+// ****************************************************************************************************************
 
 // Promises:
-/*new Promise(((resolve, reject) => {
-    setTimeout(() => {
-        resolve('Woke up');
-    }, 1000)
-}))
-    .then((firstAction) => {
-        console.log(firstAction);
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve('Brushed teeth');
-            }, 600)
-        })
-    }).then((secondAction) => {
-    console.log(secondAction);
-    return new Promise(((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Had breakfast');
-        }, 500)
-    }))
-}).then((thirdAction) => {
-    console.log(thirdAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Dressed up');
-        }, 1100)
-    })
-}).then((fourthAction) => {
-    console.log(fourthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Went to the bus station');
-        }, 800)
-    })
-}).then((fifthAction) => {
-    console.log(fifthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Arrived to the workplace');
-        }, 1000)
-    })
-}).then((sixthAction) => {
-    console.log(sixthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Had lunch');
-        }, 1200)
-    })
-}).then((seventhAction) => {
-    console.log(seventhAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Participated in the meeting');
-        }, 900)
-    })
-}).then((eighthsAction) => {
-    console.log(eighthsAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Finished working');
-        }, 600)
-    })
-}).then((ninthAction) => {
-    console.log(ninthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Arrived home');
-        }, 800)
-    })
-}).then((tenthAction) => {
-    console.log(tenthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Had dinner');
-        }, 700)
-    })
-}).then((eleventhAction) => {
-    console.log(eleventhAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Brushed teeth');
-        }, 1000)
-    })
-}).then((twelfthAction) => {
-    console.log(twelfthAction);
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('Went to sleep');
-        }, 1500)
-    })
-}).then((thirteenthAction) => {
-    console.log(thirteenthAction)
-}).catch((error) => {
-    console.error(error)
-})*/
 
-// async/await:
-/*async function routine() {
-    const s1 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Woke up')
-    }, 1000))
-    const s2 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Brushed Teeth');
-    }, 700))
-    const s3 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Had breakfast');
-    }, 1300))
-    const s4 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Dressed up');
-    }, 850))
-    const s6 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Went to the bus station');
-    }, 2000))
-    const s7 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Arrived to the workplace');
-    }, 900))
-    const s8 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Had lunch');
-    }, 1500))
-    const s9 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Participated in the meeting');
-    }, 800))
-    const s10 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Finished working');
-    }, 1600))
-    const s11 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Arrived home');
-    }, 1250))
-    const s12 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Had dinner');
-    }, 1400))
-    const s13 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Brushed teeth');
-    }, 900))
-    const s14 = await new Promise((resolve) => setTimeout(() => {
-        resolve();
-        console.log('Went to sleep');
-    }, 500))
+// ****************************************************************************************************************
+
+/*const startOfADay = (isDayOff) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (!isDayOff) {
+                resolve('Waking up...')
+            }
+
+            reject('Sleep whole day...')
+        }, 800)
+    })
 }
 
-routine()*/
+const brushTeeth = (isToothpaste) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isToothpaste) {
+                resolve('Brushing teeth...');
+            }
+
+            reject('No toothpaste...');
+        }, 600)
+    })
+}
+
+const eatFood = (isFood) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isFood) {
+                resolve('Eating food...');
+            }
+
+            reject('Need to buy some food...');
+        }, 1000)
+    })
+}
+
+const dressUp = (isClothes) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isClothes) {
+                resolve('Dressing up...')
+            }
+
+            reject('Nothing to wear...')
+        }, 900)
+    })
+}
+
+const commuting = (isGoodWeather, isDisaster = false) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isDisaster) {
+                reject('Staying home...');
+            } else if (isGoodWeather) {
+                resolve('Going to bus station...');
+            } else if (!isGoodWeather) {
+                resolve('Taking taxi...');
+            }
+        }, 1200)
+    })
+}
+
+const doWork = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('Working...');
+        }, 2000)
+    })
+}
+
+const goBackHome = (isWorkDone) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (isWorkDone) {
+                resolve('Going back home...');
+            }
+            reject('Working...');
+        }, 1300)
+    })
+}
+
+const goSleep = (tired) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (tired) {
+                resolve('Going to sleep...');
+            }
+            reject('Watching films...');
+        }, 1400)
+    })
+}*/
+
+// startOfADay(false)
+//     .then(start => {
+//         console.log(start);
+//         return brushTeeth(true);
+//     })
+//     .then(brushTeeth => {
+//         console.log(brushTeeth);
+//         return eatFood(true);
+//     })
+//     .then(eatBreakfast => {
+//         console.log(eatBreakfast);
+//         return dressUp(true);
+//     })
+//     .then(dressing => {
+//         console.log(dressing);
+//         return commuting(false);
+//     })
+//     .then(commute => {
+//         console.log(commute);
+//         return doWork();
+//     })
+//     .then(work => {
+//         console.log(work);
+//         return goBackHome(true);
+//     })
+//     .then(goHome => {
+//         console.log(goHome);
+//         return eatFood(true);
+//     })
+//     .then(eatDinner => {
+//         console.log(eatDinner);
+//         return brushTeeth(true);
+//     })
+//     .then(brushTeeth => {
+//         console.log(brushTeeth);
+//         return goSleep(true);
+//     })
+//     .then(dayFinish => {
+//         console.log(dayFinish);
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     })
+
+// ****************************************************************************************************************
+
+// Async/Await:
+
+// ****************************************************************************************************************
+
+// async function routine() {
+//     try {
+//         const start = await startOfADay(false);
+//         console.log(start);
+//         const brush = await brushTeeth(start);
+//         console.log(brush);
+//         const eat = await eatFood(true);
+//         console.log(eat);
+//         const dress = await dressUp(true);
+//         console.log(dress);
+//         const commute = await commuting(true);
+//         console.log(commute);
+//         const work = await doWork(true);
+//         console.log(work);
+//         const goBack = await goBackHome(true);
+//         console.log(goBack);
+//         const eatAgain = await eatFood(true);
+//         console.log(eatAgain);
+//         const brushAgain = await brushTeeth(true);
+//         console.log(brushAgain);
+//         const finish = await goSleep(true);
+//         console.log(finish);
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+//
+// routine();
 
