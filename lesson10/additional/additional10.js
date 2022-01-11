@@ -104,45 +104,22 @@ checkboxForm.addEventListener('submit', e => {
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 // Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 
-// --------------- THIS IS NOT SOLVED YET --------------------
-
-/*const elem = document.getElementsByClassName('main-block')[0];
+const elem = document.getElementsByClassName('main-block')[0];
 const leftBtn = document.createElement('img');
 leftBtn.src = 'icons/arrow_left.svg';
-leftBtn.style.width = '15px';
+leftBtn.style.width = '25px';
+leftBtn.style.cursor = 'pointer';
 const rightBtn = document.createElement('img');
 rightBtn.src = 'icons/arrow_right.svg';
-rightBtn.style.width = '15px';
+rightBtn.style.width = '25px';
 rightBtn.style.cursor = 'pointer';
-const elementsArray = [];
-function recursion(domElement) {
-    rightBtn.onclick = function() {
-        if (domElement.children.length) {
-            // debugger
-            for (let i = 0; i < domElement.children.length; i++) {
-                let children = domElement.children;
-                elementsArray.push(children[i]);
-                console.log(elementsArray[elementsArray.length - 1]);
-                console.log(elementsArray);
-                if (elementsArray.length > i) break;
-            }
-            recursion(elementsArray[elementsArray.length - 1]);
-        } else {
-            console.log(domElement.nextElementSibling);
-        }
-    }
-        // знайти першого нащадка цього елементу і вивести його, якщо немає дітей то вивести наступного нащадка
-        // якщо в нащадка є діти, виводити кожну дитину окремо
-}
 document.body.append(leftBtn, rightBtn);
-recursion(elem);*/
+let elOrder = -1;
 
+const elementsArray = [];
 
-// template:
-const elem = document.getElementsByClassName('main-block')[0];
 function reCall(startElement) {
-    console.log(startElement);
-    // debugger
+    elementsArray.push(startElement);
     if (startElement.children.length) {
         for (const children of startElement.children) {
             reCall(children);
@@ -150,7 +127,26 @@ function reCall(startElement) {
     }
 }
 
-reCall(elem)
+reCall(elem);
+
+rightBtn.addEventListener('click', () => {
+    if (elOrder < elementsArray.length - 1) {
+        elOrder+=1;
+        console.log(elementsArray[elOrder])
+        elementsArray[elOrder].classList.add('targetEl')
+        elementsArray[elOrder - 1].classList.remove('targetEl')
+    }
+})
+
+leftBtn.addEventListener('click', () => {
+    if (elOrder > 0) {
+        elOrder-=1;
+        console.log(elementsArray[elOrder])
+        elementsArray[elOrder].classList.add('targetEl')
+        elementsArray[elOrder + 1].classList.remove('targetEl')
+    }
+})
+
 
 // ------------------------------------------------------------------------------------------------------
 

@@ -166,3 +166,7 @@
 .is-hidden {
     display: none;
 }
+
+.targetEl {
+    text-decoration: underline;
+}
